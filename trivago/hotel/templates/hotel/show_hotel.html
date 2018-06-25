@@ -1,0 +1,405 @@
+{% load static %}
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+          <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+    <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+
+<!--
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+-->
+    <title>my site</title>
+  </head>
+
+
+
+
+<body>
+
+
+
+<div class="row" style="padding-top:5vh">
+
+    <a href=""><img src="{% static "hotel/logo.png" %}" alt="My image" style="margin-left:90vh;width:15vh;height:15vh;margin-top:-2%" ></a>
+
+
+     <!-- <div>
+        <p style="margin:2vh;padding:2vh;margin-left:70vh">INR</p>
+     </div> -->
+
+    <div style="margin-top:2vh ;margin-left:70vh" class="dropdown">
+    <button style="all:none;background-color: transparent;" type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+      INR
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">EUR-euro</a>
+      <a class="dropdown-item" href="#">GBP-Bristish Pound</a>
+      <a class="dropdown-item-text" href="#">USD us dollar</a>
+    </div>
+  </div>
+
+  <div style="margin-top:2vh" class="dropdown">
+  <button style="all:none;background-color: transparent;" type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+    MY PROFILE
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Log In</a>
+    <a class="dropdown-item" href="#">Sign Up</a>
+  </div>
+</div>
+
+
+</div>
+
+
+
+
+
+<div style="background-color:#37454d;height:30vh;padding:2vh" class="">
+
+
+  <div class="container-fluid">
+    <div class="row" style="padding-top:0">
+
+      <div class="col-md-2">
+
+      </div>
+      <div class="col-md-7" >
+        <form action="{% url 'hotel:search' %}" method="post">
+          {% csrf_token %}
+
+              <input type="text" class="form-control" style="width:100%;margin:0" name="search_value" placeholder="Enter eg. MUMBAI" value="">
+
+        </div>
+
+      <div class="col-md-1" style="padding:0">
+        <button style="margin:0;width:100%" type="submit" class="btn btn-primary">Search</button>
+
+          </form>
+      </div>
+
+      <div class="col-md-2">
+      </div>
+
+</div>
+
+
+  <div class="row" style="padding-top:4vh">
+
+    <div class="col-md-2">
+
+    </div>
+
+    <div class="col-md-8">
+
+      <div class="row">
+
+        <div class="col-md-4">
+          <p> <span style="color:white">Check In:</span>  <input type="date" name="checkin" style="width:70%"></p>
+        </div>
+
+        <div class="col-md-4">
+            <p><span style="color:white">Check Out:</span> <input type="date" name="checkout" style="width:70%"></p>
+        </div>
+
+        <div class="col-md-4">
+
+          <div class="dropdown">
+          <button style="border:none;background-color: white;width:100%;color:black" class="btn btn-primary dropdown-toggle"  type="button" data-toggle="dropdown">
+
+            Double Room
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#" >Single Room</a></li>
+            <li><a href="#" >Double Room</a></li>
+            <li><a href="#" >Family Rooms</a></li>
+            <li><a href="#" >Multiple Rooms</a></li>
+          </ul>
+      </div>
+      </div>
+
+
+        </div>
+
+      </div>
+
+    <div class="col-md-2">
+    </div>
+
+</div>
+
+
+  <div class="row" style="padding:2vh">
+
+    <div class="col-md-2">
+
+    </div>
+
+    <div class="col-md-8">
+
+      <div class="row">
+
+        <div class="col-md-4">
+
+
+          <!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"  media="screen">
+          <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+
+
+
+                <div data-role="rangeslider">
+                  <label for="price-min">Price:</label>
+                  <input type="range" name="price-min" id="price-min" value="200" min="0" max="1000">
+                  <!-- <label for="price-max">Price:</label> -->
+                  <!-- <input type="range" name="price-max" id="price-max" value="800" min="0" max="1000"> -->
+                </div>
+
+
+
+
+
+
+        </div>
+
+        <div class="col-md-2">
+          <!-- <button style="border:1px solid black; background-color: transparent;"> <p>Hotel class <br> <span class="glyphicon glyphicon-star">All</span> </p> </button>
+           -->
+
+           <div class="dropdown">
+            <button style="border:none;background-color: transparent;width:100%" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+              Hotel Class <br><span style="color:#FF9933" class="glyphicon glyphicon-star"></span> All
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#">
+                  <span style="color:#FF9933" class="glyphicon glyphicon-star"></span>
+                  <span style="color:#FF9933" class="glyphicon glyphicon-star"></span>
+                  <span style="color:#FF9933" class="glyphicon glyphicon-star"></span>
+                  <span style="color:#FF9933" class="glyphicon glyphicon-star"></span>
+                  <span style="color:#FF9933" class="glyphicon glyphicon-star"></span>
+                  &nbsp star
+                </a></li>
+
+                <li>
+                  <a href="#">
+                    <span style="color:#FF9933" class="glyphicon glyphicon-star"></span>
+                    <span style="color:#FF9933" class="glyphicon glyphicon-star"></span>
+                    <span style="color:#FF9933" class="glyphicon glyphicon-star"></span>
+                    <span style="color:#FF9933" class="glyphicon glyphicon-star"></span>
+
+                    &nbsp&nbsp&nbsp&nbsp&nbsp star
+                  </a></li>
+
+
+                  <li>
+                    <a href="#">
+                      <span style="color:#FF9933" class="glyphicon glyphicon-star"></span>
+                      <span style="color:#FF9933" class="glyphicon glyphicon-star"></span>
+                      <span style="color:#FF9933" class="glyphicon glyphicon-star"></span>
+
+                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp star
+                    </a></li>
+
+
+                    <li>
+                      <a href="#">
+                        <span style="color:#FF9933" class="glyphicon glyphicon-star"></span>
+                        <span style="color:#FF9933" class="glyphicon glyphicon-star"></span>
+
+                        &nbsp    &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp star
+                      </a></li>
+
+                      <li>
+                        <a href="#">
+                          <span style="color:#FF9933" class="glyphicon glyphicon-star"></span>
+
+                          &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp star
+                        </a></li>
+
+
+            </ul>
+          </div>
+
+
+        </div>
+
+        <div class="col-md-2">
+
+          <div class="dropdown">
+           <button style="border:none;background-color: transparent;width:100%" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+             Guest Rating <br> All
+           </button>
+           <ul class="dropdown-menu">
+             <li><a href="#"><span style="color:#FF9933" class="glyphicon glyphicon-star"></span> &nbsp 10 star</a></li>
+            <li><a href="#"><span style="color:#FF9933" class="glyphicon glyphicon-star"></span> &nbsp 9.5 star</a></li>
+            <li><a href="#"><span style="color:#FF9933" class="glyphicon glyphicon-star"></span> &nbsp 8.5 star</a></li>
+            <li><a href="#"><span style="color:#FF9933" class="glyphicon glyphicon-star"></span> &nbsp 7.5 star</a></li>
+            <li><a href="#"><span style="color:#FF9933" class="glyphicon glyphicon-star"></span> &nbsp 6.5 star</a></li>
+           </ul>
+         </div>
+
+        </div>
+
+
+        <div class="col-md-2">
+          <div class="dropdown">
+           <button style="border:none;background-color: transparent;width:100%" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+             Hotel Location <br> from city centre
+           </button>
+           <ul class="dropdown-menu">
+             <li><a href="#"><span class="glyphicons glyphicons-star"></span>near city centre</a></li>
+             <li><a href="#">away from city centre</a></li>
+
+           </ul>
+         </div>
+        </div>
+
+
+        <div class="col-md-2">
+
+          <div class="dropdown">
+          <button style="border:none;background-color: transparent;width:100%;" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          More <br> filters
+          </button>
+
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">car park</a>
+            <a class="dropdown-item" href="#">air conditioning</a>
+            <a class="dropdown-item" href="#">pool</a>
+            <a class="dropdown-item" href="#">restaurant</a>
+            <a class="dropdown-item" href="#">spa</a>
+            <a class="dropdown-item" href="#"><input class="dropdown-item" type="checkbox" name="vehicle" value="Bike">have</a>
+
+          </div>
+        </div>
+        </div>
+
+      </div>
+
+
+
+
+    </div>
+
+    <div class="col-md-2">
+
+    </div>
+
+
+  </div>
+
+
+
+</div>
+
+</div>  <!-- jumbotron finished -->
+
+
+{% if sr %}
+{% for info in sr %}
+
+  <div class="row" style="background-color:#b3d4fc;padding-top:2vh;">
+
+  <div class="col-md-2">
+
+  </div>
+
+<div class="col-md-8">
+
+
+
+<div class="container-fluid" style="background-color:white;">
+
+
+
+    <div class="row" style="padding:2vh" >
+
+<!-- {% static "hotel/placeholder.jpg" %} -->
+        <div class="col-md-3">
+          <img style="height:25vh;width:25vh;border:1px solid black" src="{{info.image.url}}" class="img-thumbnail" alt="Cinque Terre">
+        </div>
+
+        <div class="col-md-5" style="border-right:1px solid black">
+          <p style="padding:0vh">
+          <strong style="font-size:4vh;color:blue">{{info.name}}</strong><br>
+
+          <br>{{info.city}},{{info.location_description}}<br> <br>
+          <strong>{{info.quality}}</strong><br> <br>
+          {% if info.wifi %}
+            FREE WIFI <br>
+          {% endif %}</p>
+        </div>
+
+        <div class="col-md-2" style="border-right:1px solid black">
+            <p style="font-size:2vh">
+              <p style="color:blue">Hotel website<br><i class="fa fa-inr" style="font-size:2vh"></i>{{info.hotel_website_price}}</p>
+              <p>Goibibo.com <br><i class="fa fa-inr" style="font-size:2vh"></i>{{info.goibibo_price}}</p>
+              <p style="color:red;margin-top:2vh">Expedia.com <br><i class="fa fa-inr" style="font-size:2vh"></i>{{info.expedia_price}}</p>
+            </p>
+        </div>
+
+        <div class="col-md-2">
+          <p style="font-size:25px;text-align: center;vertical-align: middle;line-height:90px;color:green">
+            <i class="fa fa-inr" style="font-size:25px"></i>{{info.hotel_website_price}}
+          </p>
+        <button style="margin-left:3vh;margin-top:3vh" type="button" class="btn btn-success">View Deal</button>
+        </div>
+
+
+
+
+    </div>
+
+</div><br>
+
+</div>
+
+
+<div class="col-md-2">
+
+</div>
+
+</div>
+
+
+{% endfor %}
+{% endif %}
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    </body>
+</html>
